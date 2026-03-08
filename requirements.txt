@@ -20,3 +20,5 @@ timm==0.4.12
 tqdm==4.66.5
 visdom==0.2.4
 wandb==0.19.8
+mamba-ssm
+causal-conv1d
