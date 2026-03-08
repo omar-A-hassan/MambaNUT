@@ -12,3 +12,5 @@ from .tracking_net_lmdb import TrackingNet_lmdb
 from .exdark import ExDark
 from .bdd100k_night import BDD100K_Night
 from .shift_night import SHIFT_Night
+from .uav123 import UAV123
+from .uav20l import UAV20L

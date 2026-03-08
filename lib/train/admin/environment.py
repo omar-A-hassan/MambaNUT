@@ -59,6 +59,7 @@ def create_default_local_file_ITP_train(workspace_dir, data_dir):
         'trackingnet_lmdb_dir': os.path.join(data_dir, 'trackingnet_lmdb'),
         'coco_dir': os.path.join(data_dir, 'coco'),
         'coco_lmdb_dir': os.path.join(data_dir, 'coco_lmdb'),
+        'uav_dir': os.path.join(data_dir, 'UAV123'),
         'lvis_dir': empty_str,
         'sbd_dir': empty_str,
         'imagenet_dir': os.path.join(data_dir, 'vid'),

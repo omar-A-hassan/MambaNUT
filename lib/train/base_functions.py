@@ -2,7 +2,7 @@ import torch
 from torch.utils.data.distributed import DistributedSampler
 # datasets related
 from lib.train.dataset import Lasot, Got10k, MSCOCOSeq, ImagenetVID, TrackingNet
-from lib.train.dataset import Lasot_lmdb, Got10k_lmdb, MSCOCOSeq_lmdb, ImagenetVID_lmdb, TrackingNet_lmdb, ExDark, BDD100K_Night, SHIFT_Night
+from lib.train.dataset import Lasot_lmdb, Got10k_lmdb, MSCOCOSeq_lmdb, ImagenetVID_lmdb, TrackingNet_lmdb, ExDark, BDD100K_Night, SHIFT_Night, UAV123, UAV20L
 from lib.train.data import sampler, opencv_loader, processing, LTRLoader
 import lib.train.data.transforms as tfm
 from lib.utils.misc import is_main_process
@@ -29,7 +29,8 @@ def names2datasets(name_list: list, settings, image_loader):
     datasets = []
     for name in name_list:
         assert name in ["LASOT", "GOT10K_vottrain", "GOT10K_votval", "GOT10K_train_full", "GOT10K_official_val",
-                        "COCO17", "VID", "TRACKINGNET", "BDD100K_NIGHT", "SHIFT_NIGHT", "ExDark"]
+                        "COCO17", "VID", "TRACKINGNET", "BDD100K_NIGHT", "SHIFT_NIGHT", "ExDark",
+                        "UAV123", "UAV20L"]
         if name == "LASOT":
             if settings.use_lmdb:
                 print("Building lasot dataset from lmdb")
@@ -84,6 +85,10 @@ def names2datasets(name_list: list, settings, image_loader):
             datasets.append(SHIFT_Night(settings.env.shift_dir, image_loader=image_loader))
         if name == "ExDark":
             datasets.append(ExDark(settings.env.exdark_dir, image_loader=image_loader))
+        if name == "UAV123":
+            datasets.append(UAV123(settings.env.uav_dir, image_loader=image_loader))
+        if name == "UAV20L":
+            datasets.append(UAV20L(settings.env.uav_dir, image_loader=image_loader))
     return datasets
 
 
