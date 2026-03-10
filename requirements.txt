@@ -20,5 +20,5 @@ timm==0.4.12
 tqdm==4.66.5
 visdom==0.2.4
 wandb==0.19.8
-mamba-ssm
-causal-conv1d
+causal_conv1d @ git+https://github.com/Dao-AILab/causal-conv1d.git
+mamba_ssm @ git+https://github.com/state-spaces/mamba.git
